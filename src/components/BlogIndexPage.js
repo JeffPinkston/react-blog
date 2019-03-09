@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-navi'
 import siteMetadata from '../siteMetadata'
 import ArticleSummary from './ArticleSummary'
 import Bio from './Bio'
 import Pagination from './Pagination'
 import styles from './BlogIndexPage.module.css'
+// import Toggle from './Toggle'
+// import useDarkMode from '../hooks/useDarkMode'
 
 function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
+  // const [darkMode, setDarkMode] = useDarkMode();
   return (
     <div>
       <header>
-        <h1 className={styles.title}>
-          <NavLink href={blogRoot}>{siteMetadata.title}</NavLink>
-        </h1>
+        <div className="headerRow">
+
+          <h1 className={styles.title}>
+            <NavLink className="headerRow__navlink" href={blogRoot}>{siteMetadata.title}</NavLink>
+          </h1>
+          {/* <div className="toggle__div">
+            <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
+          </div> */}
+        </div>
         <Bio />
+
       </header>
       <ul className={styles.articlesList}>
         {postRoutes.map(route =>
